@@ -1,5 +1,170 @@
 {
   "Version": 1,
   "ManifestType": "Build",
-  "Endpoints": []
+  "Endpoints": [
+    {
+      "Route": "images/hotels/8f3531ee-beb8-4e46-83bc-eb34d48c69ce.iz762barmv.jpeg",
+      "AssetFile": "images/hotels/8f3531ee-beb8-4e46-83bc-eb34d48c69ce.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "30810"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7hvWTlO8coUmh9gj+SNkxwHNK/Km2phPP2bf5uCdAmY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 03 May 2025 11:43:38 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "iz762barmv"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7hvWTlO8coUmh9gj+SNkxwHNK/Km2phPP2bf5uCdAmY="
+        },
+        {
+          "Name": "label",
+          "Value": "images/hotels/8f3531ee-beb8-4e46-83bc-eb34d48c69ce.jpeg"
+        }
+      ]
+    },
+    {
+      "Route": "images/hotels/8f3531ee-beb8-4e46-83bc-eb34d48c69ce.jpeg",
+      "AssetFile": "images/hotels/8f3531ee-beb8-4e46-83bc-eb34d48c69ce.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "30810"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7hvWTlO8coUmh9gj+SNkxwHNK/Km2phPP2bf5uCdAmY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 03 May 2025 11:43:38 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7hvWTlO8coUmh9gj+SNkxwHNK/Km2phPP2bf5uCdAmY="
+        }
+      ]
+    },
+    {
+      "Route": "images/hotels/d7321c41-6b3e-4fbc-acb6-93c7af0073fa.iz762barmv.jpeg",
+      "AssetFile": "images/hotels/d7321c41-6b3e-4fbc-acb6-93c7af0073fa.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "30810"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7hvWTlO8coUmh9gj+SNkxwHNK/Km2phPP2bf5uCdAmY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 03 May 2025 11:42:16 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "iz762barmv"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7hvWTlO8coUmh9gj+SNkxwHNK/Km2phPP2bf5uCdAmY="
+        },
+        {
+          "Name": "label",
+          "Value": "images/hotels/d7321c41-6b3e-4fbc-acb6-93c7af0073fa.jpeg"
+        }
+      ]
+    },
+    {
+      "Route": "images/hotels/d7321c41-6b3e-4fbc-acb6-93c7af0073fa.jpeg",
+      "AssetFile": "images/hotels/d7321c41-6b3e-4fbc-acb6-93c7af0073fa.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "30810"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7hvWTlO8coUmh9gj+SNkxwHNK/Km2phPP2bf5uCdAmY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 03 May 2025 11:42:16 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7hvWTlO8coUmh9gj+SNkxwHNK/Km2phPP2bf5uCdAmY="
+        }
+      ]
+    }
+  ]
 }

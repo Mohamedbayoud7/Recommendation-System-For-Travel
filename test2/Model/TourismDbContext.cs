@@ -15,6 +15,9 @@ namespace test2.Model
         public DbSet<hotelbookings> hotelbookings { get; set; }
         public DbSet<tripBookings> tripBookings { get; set; }
         public DbSet<reviews> reviews { get; set; }
+        public DbSet<HotelImage> HotelImages { get; set; }
+        public DbSet<PlaceImage> PlaceImages { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -93,6 +96,60 @@ namespace test2.Model
             modelBuilder.Entity<historicalplaces>().ToTable("Historical_Places");
             modelBuilder.Entity<hotels>().ToTable("Hotels");
             modelBuilder.Entity<cities>().ToTable("cities");
+
+            modelBuilder.Entity<hotels>()
+                .HasOne(h => h.HistoricalPlace)
+                .WithMany(hp => hp.hotels)
+                .HasForeignKey(h => h.HistoricalPlaceId)
+                .OnDelete(DeleteBehavior.Restrict); 
+
+            base.OnModelCreating(modelBuilder);
+
+
+            // العلاقة بين Hotel و HistoricalPlace
+            modelBuilder.Entity<hotels>()
+                .HasOne(h => h.HistoricalPlace)
+                .WithMany(hp => hp.hotels)
+                .HasForeignKey(h => h.HistoricalPlaceId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // العلاقة بين Review و User
+            modelBuilder.Entity<reviews>()
+                .HasOne(r => r.user)
+                .WithMany(u => u.reviews)
+                .HasForeignKey(r => r.user_id)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // العلاقة بين Review و Trip
+            modelBuilder.Entity<reviews>()
+                .HasOne(r => r.trips)
+                .WithMany(t => t.reviews)
+                .HasForeignKey(r => r.trip_id)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // العلاقة بين Review و Hotel
+            modelBuilder.Entity<reviews>()
+                .HasOne(r => r.hotels)
+                .WithMany(h => h.reviews)
+                .HasForeignKey(r => r.hotel_id)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            base.OnModelCreating(modelBuilder);
+
+            //dddddddddddbbbbbbbbbbbbbb
+            modelBuilder.Entity<HotelImage>()
+                .HasOne(h => h.Hotel)
+                .WithMany(h => h.Images)
+                .HasForeignKey(h => h.HotelId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<PlaceImage>()
+                .HasOne(p => p.HistoricalPlace)
+                .WithMany(p => p.Images)
+                .HasForeignKey(p => p.HistoricalPlaceId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+
         }
     }
 }

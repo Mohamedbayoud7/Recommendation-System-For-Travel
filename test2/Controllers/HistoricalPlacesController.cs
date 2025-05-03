@@ -28,20 +28,33 @@ namespace test2.Controllers
         [AllowAnonymous]
         [HttpGet]
         [Route("{id:int}")]
-        public IActionResult GetAllHistoricalPlacesById(int id,object historicalplaces)
+        public IActionResult GetAllHistoricalPlacesById(int id)
         {
-            var HistoricalPlaces = dbContext.historicalplaces.Find(id);
-            if (HistoricalPlaces is null)
-            {
+            var historicalPlace = dbContext.historicalplaces.Find(id);
+            if (historicalPlace is null)
+            
                 return NotFound();
-            }
-            return Ok(historicalplaces);
+            var images = dbContext.PlaceImages
+        .Where(h => h.HistoricalPlaceId == id)
+        .Select(i => i.ImageUrl)
+        .ToList();
+
+            return Ok(new
+            {
+                historicalPlace.place_id,
+                historicalPlace.name,
+                historicalPlace.city_id,
+                historicalPlace.descreption,
+                historicalPlace.rating,
+                historicalPlace.entry_fee,
+                Images = images
+
+            });
         }
         [Authorize]
         [HttpPost]
         public IActionResult AddHistoricalPlaces(AddHistoricalPlaces addHistoricalPlaces)
         {
-            //var HistoricalPlacesEntity = new historicalplaces()
             var HistoricalPlacesEntity = new historicalplaces()
             {
                 place_id = addHistoricalPlaces.place_id,
@@ -49,7 +62,6 @@ namespace test2.Controllers
                 city_id = addHistoricalPlaces.city_id,
                 descreption = addHistoricalPlaces.descreption,
                 rating = addHistoricalPlaces.rating,
-                image = addHistoricalPlaces.image,
                 entry_fee = addHistoricalPlaces.entry_fee
             };
             dbContext.historicalplaces.Add(HistoricalPlacesEntity);
@@ -69,7 +81,6 @@ namespace test2.Controllers
             HistoricalPlaces.name = updateHistoricalPlaces.name;
             HistoricalPlaces.descreption = updateHistoricalPlaces.descreption;
             HistoricalPlaces.rating = updateHistoricalPlaces.rating;
-            HistoricalPlaces.image = updateHistoricalPlaces.image;
             HistoricalPlaces.entry_fee = updateHistoricalPlaces.entry_fee;
 
             dbContext.SaveChanges();
@@ -89,5 +100,41 @@ namespace test2.Controllers
             dbContext.SaveChanges();
             return Ok();
         }
+        [Authorize]
+        [HttpPost("upload/{placeId}")]
+        public async Task<IActionResult> UploadImage(int placeId, IFormFile image)
+        {
+            if (image == null || image.Length == 0)
+                return BadRequest("No image uploaded.");
+
+            var historicalPlace = dbContext.historicalplaces.Find(placeId);
+            if (historicalPlace == null)
+                return NotFound("Historical Place not found.");
+
+            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/historicalplaces");
+            if (!Directory.Exists(uploadsFolder))
+                Directory.CreateDirectory(uploadsFolder);
+
+            var fileName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
+            var filePath = Path.Combine(uploadsFolder, fileName);
+
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await image.CopyToAsync(stream);
+            }
+
+            var placeImage = new PlaceImage
+            {
+                ImageUrl = $"/images/historicalplaces/{fileName}",  
+                HistoricalPlaceId = placeId  
+            };
+
+            dbContext.PlaceImages.Add(placeImage);
+            dbContext.SaveChanges();
+
+            return Ok(new { ImageUrl = placeImage.ImageUrl });
+        }
+        
+
     }
 }

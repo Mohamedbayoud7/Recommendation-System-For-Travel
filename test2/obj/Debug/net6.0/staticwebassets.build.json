@@ -1,12 +1,228 @@
 {
   "Version": 1,
-  "Hash": "8T04h20jCmiIjBcL8Je4Y/tVT7vWNiHveA0ku9kOtNw=",
+  "Hash": "7GAvN7vJyH9XCgXnu84qiTf0b0BK44nPNo3BYXKnEe0=",
   "Source": "test2",
   "BasePath": "_content/test2",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": [],
-  "Endpoints": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "test2\\wwwroot",
+      "Source": "test2",
+      "ContentRoot": "C:\\Users\\Azqoul\\source\\repos\\test2\\test2\\wwwroot\\",
+      "BasePath": "_content/test2",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Azqoul\\source\\repos\\test2\\test2\\wwwroot\\images\\hotels\\8f3531ee-beb8-4e46-83bc-eb34d48c69ce.jpeg",
+      "SourceId": "test2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Azqoul\\source\\repos\\test2\\test2\\wwwroot\\",
+      "BasePath": "_content/test2",
+      "RelativePath": "images/hotels/8f3531ee-beb8-4e46-83bc-eb34d48c69ce#[.{fingerprint}]?.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "iz762barmv",
+      "Integrity": "7hvWTlO8coUmh9gj+SNkxwHNK/Km2phPP2bf5uCdAmY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\hotels\\8f3531ee-beb8-4e46-83bc-eb34d48c69ce.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\Azqoul\\source\\repos\\test2\\test2\\wwwroot\\images\\hotels\\d7321c41-6b3e-4fbc-acb6-93c7af0073fa.jpeg",
+      "SourceId": "test2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Azqoul\\source\\repos\\test2\\test2\\wwwroot\\",
+      "BasePath": "_content/test2",
+      "RelativePath": "images/hotels/d7321c41-6b3e-4fbc-acb6-93c7af0073fa#[.{fingerprint}]?.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "iz762barmv",
+      "Integrity": "7hvWTlO8coUmh9gj+SNkxwHNK/Km2phPP2bf5uCdAmY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\hotels\\d7321c41-6b3e-4fbc-acb6-93c7af0073fa.jpeg"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "images/hotels/8f3531ee-beb8-4e46-83bc-eb34d48c69ce.iz762barmv.jpeg",
+      "AssetFile": "C:\\Users\\Azqoul\\source\\repos\\test2\\test2\\wwwroot\\images\\hotels\\8f3531ee-beb8-4e46-83bc-eb34d48c69ce.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "30810"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7hvWTlO8coUmh9gj+SNkxwHNK/Km2phPP2bf5uCdAmY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 03 May 2025 11:43:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "iz762barmv"
+        },
+        {
+          "Name": "label",
+          "Value": "images/hotels/8f3531ee-beb8-4e46-83bc-eb34d48c69ce.jpeg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7hvWTlO8coUmh9gj+SNkxwHNK/Km2phPP2bf5uCdAmY="
+        }
+      ]
+    },
+    {
+      "Route": "images/hotels/8f3531ee-beb8-4e46-83bc-eb34d48c69ce.jpeg",
+      "AssetFile": "C:\\Users\\Azqoul\\source\\repos\\test2\\test2\\wwwroot\\images\\hotels\\8f3531ee-beb8-4e46-83bc-eb34d48c69ce.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "30810"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7hvWTlO8coUmh9gj+SNkxwHNK/Km2phPP2bf5uCdAmY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 03 May 2025 11:43:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7hvWTlO8coUmh9gj+SNkxwHNK/Km2phPP2bf5uCdAmY="
+        }
+      ]
+    },
+    {
+      "Route": "images/hotels/d7321c41-6b3e-4fbc-acb6-93c7af0073fa.iz762barmv.jpeg",
+      "AssetFile": "C:\\Users\\Azqoul\\source\\repos\\test2\\test2\\wwwroot\\images\\hotels\\d7321c41-6b3e-4fbc-acb6-93c7af0073fa.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "30810"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7hvWTlO8coUmh9gj+SNkxwHNK/Km2phPP2bf5uCdAmY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 03 May 2025 11:42:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "iz762barmv"
+        },
+        {
+          "Name": "label",
+          "Value": "images/hotels/d7321c41-6b3e-4fbc-acb6-93c7af0073fa.jpeg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7hvWTlO8coUmh9gj+SNkxwHNK/Km2phPP2bf5uCdAmY="
+        }
+      ]
+    },
+    {
+      "Route": "images/hotels/d7321c41-6b3e-4fbc-acb6-93c7af0073fa.jpeg",
+      "AssetFile": "C:\\Users\\Azqoul\\source\\repos\\test2\\test2\\wwwroot\\images\\hotels\\d7321c41-6b3e-4fbc-acb6-93c7af0073fa.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "30810"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7hvWTlO8coUmh9gj+SNkxwHNK/Km2phPP2bf5uCdAmY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 03 May 2025 11:42:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7hvWTlO8coUmh9gj+SNkxwHNK/Km2phPP2bf5uCdAmY="
+        }
+      ]
+    }
+  ]
 }

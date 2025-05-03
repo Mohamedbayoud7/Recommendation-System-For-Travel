@@ -1,4 +1,6 @@
-﻿namespace test2.Model.HotelAction
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace test2.Model.HotelAction
 {
     public class AddHotels
     {
@@ -11,7 +13,7 @@
         public double Longitude { get; set; }
         public decimal price_per_night { get; set; }
         public decimal rating { get; set; }
-        public int HistoricalPlacesPlaceId { get; set; }
+        public int HistoricalplaceId { get; set; }
 
     }
 }

@@ -6,6 +6,7 @@ using System.Security.Claims;
 using System.Text;
 using test2.Model.Auth;
 using test2.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace test2.Controllers
 {
@@ -63,5 +64,30 @@ namespace test2.Controllers
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+        [HttpPost("signup")]
+        public IActionResult SignUp([FromBody] SignUpModel model)
+        {
+            // Check if user already exists
+            var existingUser = _context.user.FirstOrDefault(u => u.Email == model.Email);
+            if (existingUser != null)
+            {
+                return BadRequest("User already exists");
+            }
+
+            var user = new user
+            {
+                Name = model.Name,
+                Email = model.Email,
+                Password = model.Password,
+                CreatedAt = DateTime.UtcNow
+            };
+
+            _context.user.Add(user);
+            _context.SaveChanges();
+
+            return Ok(new { message = "User registered successfully" });
+        }
+
     }
 }
+    

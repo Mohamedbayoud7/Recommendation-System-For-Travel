@@ -20,8 +20,21 @@ namespace test2.Controllers
         [HttpGet]
         public IActionResult GetAllHotels()
         {
-            var AllHotels = dbContext.hotels.ToList();
-            return Ok(AllHotels);
+            var hotels = dbContext.hotels.Select(h => new{
+                h.hotel_id,
+                h.name,
+                h.address,
+                h.price_per_night,
+                h.rating,
+                h.Latitude,
+                h.Longitude,
+                Images = dbContext.HotelImages
+                        .Where(i => i.HotelId == h.hotel_id)
+                        .Select(i => i.ImageUrl)
+                        .ToList()
+
+            }).ToList();
+            return Ok(hotels);
         }
         [AllowAnonymous]
         [HttpGet]
@@ -30,10 +43,23 @@ namespace test2.Controllers
         {
             var hotels = dbContext.hotels.Find(id);
             if (hotels is null)
-            {
+            
                 return NotFound();
-            }
-            return Ok(hotels);
+            var images = dbContext.HotelImages
+        .Where(h => h.HotelId == id)
+        .Select(i => i.ImageUrl)
+        .ToList();
+            return Ok(new
+            {
+                hotels.hotel_id,
+                hotels.name,
+                hotels.address,
+                hotels.price_per_night,
+                hotels.rating,
+                hotels.Latitude,
+                hotels.Longitude,
+                Images = images
+            });
         }
         [Authorize]
         [HttpPost]
@@ -89,5 +115,41 @@ namespace test2.Controllers
             dbContext.SaveChanges();
             return Ok();
         }
+        [Authorize]
+        [HttpPost("upload/{hotelId}")]
+        public async Task<IActionResult> UploadImage(int hotelId, IFormFile image)
+        {
+            if (image == null || image.Length == 0)
+                return BadRequest("No image uploaded.");
+
+            var hotel = dbContext.hotels.Find(hotelId);
+            if (hotel == null)
+                return NotFound("Hotel not found.");
+
+            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/hotels");
+            if (!Directory.Exists(uploadsFolder))
+                Directory.CreateDirectory(uploadsFolder);
+
+            var fileName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
+            var filePath = Path.Combine(uploadsFolder, fileName);
+
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await image.CopyToAsync(stream);
+            }
+
+            var hotelImage = new HotelImage
+            {
+                ImageUrl = $"/images/hotels/{fileName}",  
+                HotelId = hotelId  
+            };
+
+            dbContext.HotelImages.Add(hotelImage);
+            dbContext.SaveChanges();
+
+            return Ok(new { ImageUrl = hotelImage.ImageUrl });
+        }
+        
+
     }
 }

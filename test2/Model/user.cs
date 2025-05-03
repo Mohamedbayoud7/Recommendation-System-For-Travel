@@ -53,12 +53,14 @@ namespace test2.Model
         public double Longitude { get; set; }
         public decimal price_per_night { get; set; }
         public decimal rating { get; set; }
-        public int HistoricalPlacesPlaceId { get; set; }
+        public int HistoricalPlaceId { get; set; }
+        public ICollection<HotelImage> Images { get; set; }
+
 
 
         //Relationships
-        [ForeignKey("HistoricalPlacesPlaceId")]
-        public historicalplaces HistoricalPlaceId { get; set; }
+        [ForeignKey("HistoricalPlaceId")]
+        public historicalplaces HistoricalPlace { get; set; }
 
         public cities cities { get; set; }
         public ICollection<hotelbookings>hotelbookings { get; set; }
@@ -86,8 +88,9 @@ namespace test2.Model
         public int city_id { get; set; }
         public string descreption { get; set; }
         public int rating { get; set; }
-        public string image { get; set; }
         public decimal entry_fee { get; set; }
+        public ICollection<PlaceImage> Images { get; set; }
+
         //Relationships
         public cities cities { get; set; }
         public ICollection<hotels> hotels { get; set; }
